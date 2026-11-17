@@ -61,7 +61,6 @@ void	PhoneBook::addContact(int i)
 
 void	PhoneBook::displayContacts(int i)
 {
-	int cnt = 8;
 	for (int n = 8; n > 0; n--)
 	{
 		i = (i + 1) % 8;

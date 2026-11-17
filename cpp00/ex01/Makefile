@@ -1,15 +1,13 @@
 .PHONY: all, clean, fclean, re, debug
 
-NAME = philo
-FLAGS = -Wall -Werror -Wextra
-# DEBUG = -g3 -pthread
-# DEBUG = -g3 -fsanitize=address
+NAME = phonebook
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp zombieHorde.cpp
+SRC = main.cpp Contact.cpp PhoneBook.cpp
 
-OBJ = $(SRC:%.c=obj/%.o)
+OBJ = $(SRC:%.cpp=obj/%.o)
 
 $(NAME): $(OBJ)
 	c++ $^ -o $(NAME) 
@@ -18,7 +16,7 @@ $(NAME): $(OBJ)
 
 
 
-obj/%.o: %.c
+obj/%.o: %.cpp
 	mkdir -p obj
 	cc $(FLAGS) -c $^ -o $@
 

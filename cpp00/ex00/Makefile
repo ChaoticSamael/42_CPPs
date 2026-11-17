@@ -1,26 +1,22 @@
 .PHONY: all, clean, fclean, re, debug
 
-NAME = philo
-FLAGS = -Wall -Werror -Wextra
-# DEBUG = -g3 -pthread
-# DEBUG = -g3 -fsanitize=address
+NAME = megaphone
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp zombieHorde.cpp
+SRC = megaphone.cpp
 
-OBJ = $(SRC:%.c=obj/%.o)
+OBJ = $(SRC:%.cpp=obj/%.o)
 
 $(NAME): $(OBJ)
-	c++ $^ -o $(NAME) 
+	c++ $(FLAGS) $^ -o $(NAME) 
 #if hide -> @ before command
 
 
-
-
-obj/%.o: %.c
+obj/%.o: %.cpp
 	mkdir -p obj
-	cc $(FLAGS) -c $^ -o $@
+	c++ $(FLAGS) -c $^ -o $@
 
 clean:
 	rm -fr $(OBJ) | rm -rf obj/

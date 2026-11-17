@@ -12,7 +12,6 @@ std::string	strToUpper(std::string str)
 	}
 	return (str);
 }
-
 int main(int argc, char **argv)
 {	
 	if (argc == 1)
